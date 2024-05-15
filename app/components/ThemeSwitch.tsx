@@ -10,7 +10,10 @@ const ThemeSwitch = () => {
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    if (!theme) {
+      setTheme('dark');
+    }
+  }, [setTheme, theme]);  // Include setTheme and theme in the dependency array
 
   if (!mounted) {
     return null;
